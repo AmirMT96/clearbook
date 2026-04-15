@@ -6,8 +6,11 @@ export const metadata: Metadata = {
   description: 'Dein persönlicher Finanz-Begleiter.',
   manifest: '/manifest.json',
   icons: {
-    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
-    apple: '/favicon.svg',
+    icon: [
+      { url: '/favicon-32.png', type: 'image/png', sizes: '32x32' },
+      { url: '/favicon.png', type: 'image/png', sizes: '256x256' },
+    ],
+    apple: '/apple-touch-icon.png',
   },
   appleWebApp: {
     capable: true,

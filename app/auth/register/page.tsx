@@ -86,7 +86,7 @@ export default function RegisterWizard() {
 
   return (
     <main className="min-h-dvh flex flex-col items-center justify-center p-6 bg-bg">
-      <Link href="/auth" className="mb-6"><img src="/logo.svg" alt="Clearbook" width={156} height={56} className="h-8 md:h-10 w-auto" /></Link>
+      <Link href="/auth" className="mb-6 inline-block"><img src="/logo.png" alt="Clearbook" width={237} height={70} className="h-11 md:h-14 w-auto" /></Link>
       <div className="card max-w-md w-full">
         {/* progress */}
         <div className="flex gap-1 mb-6">

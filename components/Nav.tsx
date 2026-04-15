@@ -16,7 +16,7 @@ export function Sidebar({ botttSeed, botttName, anrede }: { botttSeed?: string; 
   return (
     <aside className="hidden md:flex md:flex-col md:w-64 md:fixed md:inset-y-0 md:left-0 bg-surface border-r border-border px-5 py-6 gap-2">
       <Link href="/dashboard" className="mb-6 inline-block">
-        <img src="/logo.svg" alt="Clearbook" width={156} height={56} className="h-9 w-auto" />
+        <img src="/logo.png" alt="Clearbook" width={203} height={60} className="h-9 w-auto" />
       </Link>
       <nav className="flex flex-col gap-1 flex-1">
         {items.map((it) => {
@@ -63,7 +63,7 @@ export function MobileTopBar({ botttSeed, anrede }: { botttSeed?: string; anrede
   return (
     <header className="md:hidden sticky top-0 z-30 bg-surface/80 backdrop-blur border-b border-border px-4 py-3 flex items-center justify-between">
       <Link href="/dashboard" className="inline-block">
-        <img src="/logo.svg" alt="Clearbook" width={140} height={50} className="h-7 w-auto" />
+        <img src="/logo.png" alt="Clearbook" width={108} height={32} className="h-8 w-auto" />
       </Link>
       {botttSeed && (
         <Link href="/settings"><BotttAvatar seed={botttSeed} anrede={anrede} size={32} /></Link>

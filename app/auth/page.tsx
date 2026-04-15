@@ -5,9 +5,9 @@ export default function AuthWelcome() {
     <main className="min-h-dvh flex flex-col bg-gradient-to-b from-bg to-accent-50">
       <div className="flex-1 flex flex-col items-center justify-center px-6 py-10">
         <img
-          src="/logo.svg"
+          src="/logo.png"
           alt="Clearbook"
-          width={278}
+          width={339}
           height={100}
           className="h-14 md:h-20 w-auto mb-10"
         />
