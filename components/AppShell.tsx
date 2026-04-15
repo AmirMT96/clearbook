@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Sidebar, BottomNav } from './Nav';
+import { Sidebar, BottomNav, MobileTopBar } from './Nav';
 import { QuickInput } from './QuickInput';
 
 export function AppShell({
@@ -22,6 +22,7 @@ export function AppShell({
     <div className="min-h-dvh">
       <Sidebar botttSeed={botttSeed} botttName={botttName} anrede={anrede} />
       <div className="md:pl-64">
+        <MobileTopBar botttSeed={botttSeed} anrede={anrede} />
         <main className="pb-24 md:pb-8">{children}</main>
       </div>
       <BottomNav onQuickAdd={() => setOpen(true)} />

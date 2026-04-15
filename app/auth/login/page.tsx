@@ -23,7 +23,7 @@ export default function LoginPage() {
 
   return (
     <main className="min-h-dvh flex flex-col items-center justify-center p-6 bg-bg">
-      <img src="/logo.svg" alt="Clearbook" className="h-10 mb-8" />
+      <img src="/logo.svg" alt="Clearbook" width={194} height={70} className="h-10 md:h-12 w-auto mb-8" />
       <form onSubmit={submit} className="card max-w-sm w-full">
         <h1 className="text-xl mb-4">Anmelden</h1>
         <label className="label">Email</label>

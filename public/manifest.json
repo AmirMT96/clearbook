@@ -1,0 +1,17 @@
+{
+  "name": "Clearbook",
+  "short_name": "Clearbook",
+  "description": "Persönliche Buchhaltung für Einzelunternehmer + Angestellte",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8f9fa",
+  "theme_color": "#001e40",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -4,7 +4,16 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'Clearbook — Persönliche Buchhaltung',
   description: 'Dein persönlicher Finanz-Begleiter.',
-  icons: { icon: '/favicon.svg' },
+  manifest: '/manifest.json',
+  icons: {
+    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+    apple: '/favicon.svg',
+  },
+  appleWebApp: {
+    capable: true,
+    title: 'Clearbook',
+    statusBarStyle: 'default',
+  },
 };
 
 export const viewport: Viewport = {
