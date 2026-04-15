@@ -9,7 +9,8 @@ const BG_BY_ANREDE: Record<Anrede, string> = {
 export function getBotttUrl(seed: string, anrede: Anrede | string = 'Divers'): string {
   const bg = BG_BY_ANREDE[(anrede as Anrede)] ?? 'c0aede';
   const s = encodeURIComponent(seed || 'default');
-  return `https://api.dicebear.com/7.x/bottts/svg?seed=${s}&backgroundColor=${bg}`;
+  // mood=happy excludes sad/confused faces — every Bottt smiles
+  return `https://api.dicebear.com/7.x/bottts/svg?seed=${s}&backgroundColor=${bg}&mouth=smile01,smile02`;
 }
 
 export function randomSeed(): string {

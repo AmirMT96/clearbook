@@ -173,13 +173,17 @@ export default function RegisterWizard() {
               ))}
             </div>
 
-            <label className="label">USt-pflichtig?</label>
-            <div className="grid grid-cols-2 gap-2 mb-6">
-              <button type="button" onClick={() => setUstPflichtig(true)}
-                className={cn('btn-outline', ustPflichtig && 'bg-primary-900 text-white border-primary-900')}>Ja</button>
-              <button type="button" onClick={() => setUstPflichtig(false)}
-                className={cn('btn-outline', !ustPflichtig && 'bg-primary-900 text-white border-primary-900')}>Nein (Kleinunternehmer)</button>
-            </div>
+            {(profilType === 'EINZELUNTERNEHMEN' || profilType === 'BEIDES') && (
+              <>
+                <label className="label">USt-pflichtig?</label>
+                <div className="grid grid-cols-2 gap-2 mb-6">
+                  <button type="button" onClick={() => setUstPflichtig(true)}
+                    className={cn('btn-outline', ustPflichtig && 'bg-primary-900 text-white border-primary-900')}>Ja</button>
+                  <button type="button" onClick={() => setUstPflichtig(false)}
+                    className={cn('btn-outline', !ustPflichtig && 'bg-primary-900 text-white border-primary-900')}>Nein (Kleinunternehmer)</button>
+                </div>
+              </>
+            )}
 
             <div className="flex gap-2">
               <button onClick={() => setStep(1)} className="btn-ghost flex-1">Zurück</button>

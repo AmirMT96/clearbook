@@ -1,6 +1,7 @@
 'use client';
 import { useMemo, useState } from 'react';
 import { fmtEUR, fmtDate, cn } from '@/lib/utils';
+import { TransactionEditor, type TxForEdit } from '@/components/TransactionEditor';
 
 type Tx = {
   id: string; date: string; description: string; amount: number;
@@ -17,6 +18,7 @@ export function ExplorerView({ transactions, categories }: { transactions: Tx[];
   const [monthFilter, setMonthFilter] = useState<string>('');
   const [catFilter, setCatFilter] = useState<string>('');
   const [typeFilter, setTypeFilter] = useState<string>('');
+  const [editing, setEditing] = useState<TxForEdit | null>(null);
 
   const months = useMemo(() => {
     const set = new Set<string>();
@@ -95,16 +97,17 @@ export function ExplorerView({ transactions, categories }: { transactions: Tx[];
               <th className="text-left px-4 py-3 hidden md:table-cell">Kategorie</th>
               <th className="text-right px-4 py-3 hidden md:table-cell">USt</th>
               <th className="text-center px-4 py-3">Status</th>
+              <th className="text-right px-4 py-3"></th>
             </tr>
           </thead>
           <tbody>
             {filtered.length === 0 && (
-              <tr><td colSpan={7} className="text-center text-muted py-10">Keine Transaktionen.</td></tr>
+              <tr><td colSpan={8} className="text-center text-muted py-10">Keine Transaktionen.</td></tr>
             )}
             {filtered.map((t) => {
               const cat = t.category_id ? catMap[t.category_id] : null;
               return (
-                <tr key={t.id} className="border-b border-border last:border-0 hover:bg-bg">
+                <tr key={t.id} className="border-b border-border last:border-0 hover:bg-bg cursor-pointer" onClick={() => setEditing(t as TxForEdit)}>
                   <td className="px-4 py-3 whitespace-nowrap">{fmtDate(t.date)}</td>
                   <td className="px-4 py-3">
                     <div className="flex items-center gap-2">
@@ -126,12 +129,27 @@ export function ExplorerView({ transactions, categories }: { transactions: Tx[];
                       {t.status}
                     </span>
                   </td>
+                  <td className="px-4 py-3 text-right">
+                    <button
+                      onClick={(e) => { e.stopPropagation(); setEditing(t as TxForEdit); }}
+                      className="text-muted hover:text-primary-900 p-1"
+                      aria-label="Bearbeiten"
+                    >✏️</button>
+                  </td>
                 </tr>
               );
             })}
           </tbody>
         </table>
       </div>
+
+      {editing && (
+        <TransactionEditor
+          tx={editing}
+          categories={categories}
+          onClose={() => setEditing(null)}
+        />
+      )}
     </div>
   );
 }
