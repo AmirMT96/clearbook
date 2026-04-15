@@ -6,5 +6,8 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!_next/static|_next/image|favicon.svg|logo.svg|api/parse-transaction).*)'],
+  matcher: [
+    // Skip Next internals, API, manifest, and any static file with an extension (png/svg/jpg/ico/webp/json/txt/xml/mp4/css/js)
+    '/((?!_next/static|_next/image|api/|manifest.json|.*\\.(?:png|svg|jpg|jpeg|gif|ico|webp|json|txt|xml|mp4|css|js)$).*)',
+  ],
 };
