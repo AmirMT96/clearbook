@@ -134,7 +134,7 @@ BEGIN
       (p_user_id, 'Sonstiges EU', 'EU', '📦', true);
   END IF;
 END;
-$$ LANGUAGE plpgsql SECURITY DEFINER;
+$$ LANGUAGE plpgsql SECURITY DEFINER SET search_path = public, pg_temp;
 
 CREATE OR REPLACE FUNCTION learn_merchant_from_transaction()
 RETURNS TRIGGER AS $$
@@ -154,7 +154,7 @@ BEGIN
 
   RETURN NEW;
 END;
-$$ LANGUAGE plpgsql;
+$$ LANGUAGE plpgsql SET search_path = public, pg_temp;
 
 DROP TRIGGER IF EXISTS after_transaction_booked ON transactions;
 CREATE TRIGGER after_transaction_booked
