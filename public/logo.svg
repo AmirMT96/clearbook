@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" width="220" height="48">
+  <rect x="4" y="10" width="28" height="28" rx="7" fill="#001e40"/>
+  <path d="M11 24 l5 5 l10 -12" stroke="#4ECBA0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <text x="42" y="32" font-family="Manrope, Inter, sans-serif" font-size="22" font-weight="800" fill="#001e40">Clearbook</text>
+</svg>
