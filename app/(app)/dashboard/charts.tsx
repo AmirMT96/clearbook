@@ -75,8 +75,8 @@ export function DashboardCharts({ transactions, categories }: { transactions: Tx
   return (
     <div className="grid md:grid-cols-2 gap-4 mb-6">
       {/* Bar: Income vs Expense */}
-      <div className="card dark:bg-gray-800">
-        <h3 className="font-semibold mb-2 text-sm dark:text-white">Einnahmen vs. Ausgaben</h3>
+      <div className="card dark:bg-dark-surface">
+        <h3 className="font-semibold mb-2 text-sm dark:text-dark-text">Einnahmen vs. Ausgaben</h3>
         {barData.length === 0 ? (
           <p className="text-sm text-muted py-12 text-center">Keine Daten.</p>
         ) : (
@@ -95,8 +95,8 @@ export function DashboardCharts({ transactions, categories }: { transactions: Tx
       </div>
 
       {/* Pie: Expenses by Category */}
-      <div className="card dark:bg-gray-800">
-        <h3 className="font-semibold mb-2 text-sm dark:text-white">Ausgaben nach Kategorie</h3>
+      <div className="card dark:bg-dark-surface">
+        <h3 className="font-semibold mb-2 text-sm dark:text-dark-text">Ausgaben nach Kategorie</h3>
         {pieData.length === 0 ? (
           <p className="text-sm text-muted py-12 text-center">Keine Daten.</p>
         ) : (
@@ -113,8 +113,8 @@ export function DashboardCharts({ transactions, categories }: { transactions: Tx
       </div>
 
       {/* Line: Cumulative Profit */}
-      <div className="card dark:bg-gray-800 md:col-span-2">
-        <h3 className="font-semibold mb-2 text-sm dark:text-white">Gewinn kumulativ</h3>
+      <div className="card dark:bg-dark-surface md:col-span-2">
+        <h3 className="font-semibold mb-2 text-sm dark:text-dark-text">Gewinn kumulativ</h3>
         {lineData.length === 0 ? (
           <p className="text-sm text-muted py-12 text-center">Keine Daten.</p>
         ) : (

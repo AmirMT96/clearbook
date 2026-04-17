@@ -155,7 +155,7 @@ export function SheetTable<T extends { id: string; status?: string }>({
               }}
               onBlur={commitEdit}
               onKeyDown={handleKeyDown}
-              className="w-full rounded border border-primary-100 bg-surface px-2 py-1 text-xs outline-none focus:border-primary-900 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-100"
+              className="w-full rounded border border-primary-100 bg-surface px-2 py-1 text-xs outline-none focus:border-primary-900 dark:bg-dark-surface dark:border-dark-border dark:text-dark-text"
             >
               {col.options.map((o) => (
                 <option key={o.value} value={o.value}>{o.label}</option>
@@ -174,7 +174,7 @@ export function SheetTable<T extends { id: string; status?: string }>({
             onChange={(e) => setEditValue(e.target.value)}
             onBlur={commitEdit}
             onKeyDown={handleKeyDown}
-            className="w-full rounded border border-primary-100 bg-surface px-2 py-1 text-xs outline-none focus:border-primary-900 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-100"
+            className="w-full rounded border border-primary-100 bg-surface px-2 py-1 text-xs outline-none focus:border-primary-900 dark:bg-dark-surface dark:border-dark-border dark:text-dark-text"
           />
         </td>
       );
@@ -198,7 +198,7 @@ export function SheetTable<T extends { id: string; status?: string }>({
           'px-2 py-1.5 text-xs whitespace-nowrap',
           col.width,
           col.type === 'currency' || col.type === 'number' ? 'text-right tabular-nums' : '',
-          isClickable && 'cursor-pointer hover:bg-primary-50/50 dark:hover:bg-gray-700/50',
+          isClickable && 'cursor-pointer hover:bg-primary-50/50 dark:hover:bg-dark-border/40',
         )}
         onClick={() => isClickable && startEdit(row.id, col, row)}
       >
@@ -219,7 +219,7 @@ export function SheetTable<T extends { id: string; status?: string }>({
           >
             &larr;
           </button>
-          <span className="text-sm font-semibold text-primary-900 dark:text-gray-100 min-w-[140px] text-center">
+          <span className="text-sm font-semibold text-primary-900 dark:text-dark-text min-w-[140px] text-center">
             {monthLabel}
           </span>
           <button
@@ -240,10 +240,10 @@ export function SheetTable<T extends { id: string; status?: string }>({
       </div>
 
       {/* ── Table ──────────────────────── */}
-      <div className="card !p-0 overflow-x-auto dark:bg-gray-800">
+      <div className="card !p-0 overflow-x-auto dark:bg-dark-surface">
         <table className="w-full text-left text-xs">
           <thead>
-            <tr className="border-b border-border dark:border-gray-700">
+            <tr className="border-b border-border dark:border-dark-border">
               <th className="px-2 py-2 text-xs font-semibold text-muted w-8">#</th>
               {columns.map((col) => (
                 <th
@@ -278,7 +278,7 @@ export function SheetTable<T extends { id: string; status?: string }>({
                 <tr
                   key={row.id}
                   className={cn(
-                    'border-b border-border/50 dark:border-gray-700/50 hover:bg-bg/50 dark:hover:bg-gray-700/30 transition-colors',
+                    'border-b border-border/50 dark:border-dark-border/50 hover:bg-bg/50 dark:hover:bg-dark-border/30 transition-colors',
                     row.status === 'ungefasst' && 'bg-amber-50/40 dark:bg-amber-900/10',
                   )}
                 >

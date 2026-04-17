@@ -251,10 +251,10 @@ export function QuickInput({ open, onClose, onSaved }: { open: boolean; onClose:
 
   return (
     <div className="fixed inset-0 z-50 bg-black/40 flex items-end md:items-center justify-center" onClick={onClose}>
-      <div className="bg-surface dark:bg-gray-900 w-full md:max-w-md rounded-t-2xl md:rounded-2xl p-6 shadow-lifted" onClick={(e) => e.stopPropagation()}>
+      <div className="bg-surface dark:bg-dark-surface w-full md:max-w-md rounded-t-2xl md:rounded-2xl p-6 shadow-lifted" onClick={(e) => e.stopPropagation()}>
         {recMode ? (
           <div>
-            <h3 className="text-lg font-bold dark:text-white mb-1">Wiederkehrender Eintrag</h3>
+            <h3 className="text-lg font-bold dark:text-dark-text mb-1">Wiederkehrender Eintrag</h3>
             <p className="text-sm text-muted mb-4">{pendingParsed?.merchant} — {pendingParsed?.amount} EUR</p>
             <label className="label">Jeden welchen Tag des Monats?</label>
             <input
@@ -272,7 +272,7 @@ export function QuickInput({ open, onClose, onSaved }: { open: boolean; onClose:
           </div>
         ) : (
           <>
-            <h3 className="text-lg font-bold dark:text-white mb-1">Neuer Eintrag</h3>
+            <h3 className="text-lg font-bold dark:text-dark-text mb-1">Neuer Eintrag</h3>
             <p className="text-sm text-muted mb-4">Suffix: privat, USt, USt7, noUSt, GB, +, +USt, rec</p>
             <form onSubmit={submit}>
               <div className="flex gap-2">

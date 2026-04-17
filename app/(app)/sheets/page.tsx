@@ -134,15 +134,15 @@ export default async function SheetsPage() {
           <Link
             key={c.href}
             href={c.href}
-            className="card group hover:shadow-lifted transition relative flex flex-col gap-2 dark:bg-gray-800 dark:border-gray-700"
+            className="card group hover:shadow-lifted transition relative flex flex-col gap-2 dark:bg-dark-surface dark:border-dark-border"
           >
             {c.hasWarning && (
               <span className="absolute top-4 right-4 w-2.5 h-2.5 rounded-full bg-red-500" />
             )}
-            <span className="text-lg font-bold text-primary-900 dark:text-gray-100">
+            <span className="text-lg font-bold text-primary-900 dark:text-dark-text">
               {c.title}
             </span>
-            <span className="text-sm text-muted dark:text-gray-400">
+            <span className="text-sm text-muted dark:text-dark-muted">
               {c.subtitle}
             </span>
           </Link>

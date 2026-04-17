@@ -212,7 +212,7 @@ export function UstvaSheet({ userId }: { userId: string }) {
   const zahllast = round(totalUstSchuld - totalVorsteuer);
 
   const summaryRow = (
-    <div className="card flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 dark:bg-gray-800">
+    <div className="card flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 dark:bg-dark-surface">
       <div className="flex items-center gap-6 text-sm">
         <div>
           <span className="text-muted">USt Schuld</span>
@@ -239,7 +239,7 @@ export function UstvaSheet({ userId }: { userId: string }) {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Left: Eingangsrechnungen */}
         <div>
-          <h2 className="text-base font-bold mb-3 text-primary-900 dark:text-gray-100">
+          <h2 className="text-base font-bold mb-3 text-primary-900 dark:text-dark-text">
             Eingangsrechnungen (Ausgaben)
           </h2>
           <SheetTable
@@ -257,7 +257,7 @@ export function UstvaSheet({ userId }: { userId: string }) {
 
         {/* Right: Ausgangsrechnungen */}
         <div>
-          <h2 className="text-base font-bold mb-3 text-primary-900 dark:text-gray-100">
+          <h2 className="text-base font-bold mb-3 text-primary-900 dark:text-dark-text">
             Ausgangsrechnungen (Einnahmen)
           </h2>
           <SheetTable

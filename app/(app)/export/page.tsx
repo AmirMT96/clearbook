@@ -27,7 +27,7 @@ export default async function ExportPage() {
 
   return (
     <div className="p-5 md:p-8 max-w-4xl mx-auto">
-      <h1 className="text-2xl dark:text-white mb-4">Export</h1>
+      <h1 className="text-2xl dark:text-dark-text mb-4">Export</h1>
       <ExportView
         transactions={txs ?? []}
         getbacks={getbacks ?? []}

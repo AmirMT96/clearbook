@@ -173,7 +173,7 @@ export function EinnahmenSheet({ userId }: { userId: string }) {
     <div className="space-y-8">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div>
-          <h2 className="text-base font-bold mb-3 text-primary-900 dark:text-gray-100">
+          <h2 className="text-base font-bold mb-3 text-primary-900 dark:text-dark-text">
             M&amp;A / Gehalt
           </h2>
           <SheetTable
@@ -190,7 +190,7 @@ export function EinnahmenSheet({ userId }: { userId: string }) {
         </div>
 
         <div>
-          <h2 className="text-base font-bold mb-3 text-primary-900 dark:text-gray-100">
+          <h2 className="text-base font-bold mb-3 text-primary-900 dark:text-dark-text">
             Einzelunternehmen / Honorare
           </h2>
           <SheetTable
@@ -207,7 +207,7 @@ export function EinnahmenSheet({ userId }: { userId: string }) {
         </div>
       </div>
 
-      <div className="card flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 dark:bg-gray-800">
+      <div className="card flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 dark:bg-dark-surface">
         <div className="flex items-center gap-6 text-sm">
           <div>
             <span className="text-muted">M&amp;A Netto</span>

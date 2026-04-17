@@ -46,7 +46,7 @@ export default async function DashboardPage() {
           )}
           <div>
             <p className="text-xs text-muted">{new Date().toLocaleDateString('de-DE', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}</p>
-            <h1 className="text-xl md:text-2xl dark:text-white">{greetByHour()}, {fullName || 'willkommen'}</h1>
+            <h1 className="text-xl md:text-2xl dark:text-dark-text">{greetByHour()}, {fullName || 'willkommen'}</h1>
           </div>
         </div>
       </header>

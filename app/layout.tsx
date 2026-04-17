@@ -57,7 +57,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   return (
     <html lang="de" className={darkMode ? 'dark' : ''}>
-      <body className="dark:bg-gray-950 dark:text-gray-100">{children}</body>
+      <body className="dark:bg-dark-bg dark:text-dark-text">{children}</body>
     </html>
   );
 }

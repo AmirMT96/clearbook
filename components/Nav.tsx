@@ -71,7 +71,7 @@ const navItems = [
 export function Sidebar({ botttSeed, botttName, anrede }: { botttSeed?: string; botttName?: string; anrede?: string }) {
   const pathname = usePathname();
   return (
-    <aside className="hidden md:flex md:flex-col md:w-64 md:fixed md:inset-y-0 md:left-0 bg-surface dark:bg-gray-900 border-r border-border dark:border-gray-800 px-5 py-6 gap-2">
+    <aside className="hidden md:flex md:flex-col md:w-64 md:fixed md:inset-y-0 md:left-0 bg-surface dark:bg-dark-surface border-r border-border dark:border-dark-border px-5 py-6 gap-2">
       <Link href="/dashboard" className="mb-6 inline-block">
         <img src="/logo.png?v=3" alt="Clearbook" width={203} height={60} className="h-9 w-auto dark:brightness-0 dark:invert" />
       </Link>
@@ -86,7 +86,7 @@ export function Sidebar({ botttSeed, botttName, anrede }: { botttSeed?: string; 
                 'flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition',
                 active
                   ? 'bg-primary-900 text-white dark:bg-accent dark:text-primary-900'
-                  : 'text-primary-900 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-gray-800'
+                  : 'text-primary-900 dark:text-dark-text hover:bg-primary-50 dark:hover:bg-dark-border/40'
               )}
             >
               <it.Icon className="shrink-0" />
@@ -96,10 +96,10 @@ export function Sidebar({ botttSeed, botttName, anrede }: { botttSeed?: string; 
         })}
       </nav>
       {botttSeed && (
-        <div className="mt-auto flex items-center gap-3 rounded-xl p-3 bg-bg dark:bg-gray-800">
+        <div className="mt-auto flex items-center gap-3 rounded-xl p-3 bg-bg dark:bg-dark-surface">
           <BotttAvatar seed={botttSeed} anrede={anrede} size={40} />
           <div className="text-sm">
-            <div className="font-semibold dark:text-white">{botttName ?? 'Bottt'}</div>
+            <div className="font-semibold dark:text-dark-text">{botttName ?? 'Bottt'}</div>
             <div className="text-xs text-muted">dein Clearbooker</div>
           </div>
         </div>
@@ -112,7 +112,7 @@ export function Sidebar({ botttSeed, botttName, anrede }: { botttSeed?: string; 
 
 export function MobileTopBar({ botttSeed, anrede }: { botttSeed?: string; anrede?: string }) {
   return (
-    <header className="md:hidden sticky top-0 z-30 bg-surface/80 dark:bg-gray-900/80 backdrop-blur border-b border-border dark:border-gray-800 px-4 py-3 flex items-center justify-between">
+    <header className="md:hidden sticky top-0 z-30 bg-surface/80 dark:bg-dark-surface/80 backdrop-blur border-b border-border dark:border-dark-border px-4 py-3 flex items-center justify-between">
       <Link href="/dashboard" className="inline-block">
         <img src="/logo.png?v=3" alt="Clearbook" width={108} height={32} className="h-8 w-auto dark:brightness-0 dark:invert" />
       </Link>
@@ -132,7 +132,7 @@ export function BottomNav({ onQuickAdd }: { onQuickAdd: () => void }) {
 
   return (
     <nav
-      className="md:hidden fixed bottom-0 inset-x-0 bg-surface dark:bg-gray-900 border-t border-border dark:border-gray-800 z-40 flex items-center justify-around"
+      className="md:hidden fixed bottom-0 inset-x-0 bg-surface dark:bg-dark-surface border-t border-border dark:border-dark-border z-40 flex items-center justify-around"
       style={{ paddingBottom: 'var(--safe-bottom)' }}
     >
       {left.map((it) => {

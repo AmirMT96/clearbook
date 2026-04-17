@@ -120,7 +120,7 @@ export function GetbacksSheet({ userId }: { userId: string }) {
     <div>
       {isLateMonth && openCount > 0 && (
         <div className="card mb-4 border-l-4 border-amber-400 bg-amber-50/60 dark:bg-amber-900/20 dark:border-amber-600">
-          <p className="text-sm text-primary-900 dark:text-gray-200">
+          <p className="text-sm text-primary-900 dark:text-dark-text">
             <span className="inline-block w-2 h-2 rounded-full bg-amber-500 mr-2" />
             {openCount} offene Rueckforderung{openCount !== 1 ? 'en' : ''} ({fmtEUR(openSum)}) -- Monatsende naht.
           </p>

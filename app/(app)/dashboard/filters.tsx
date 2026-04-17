@@ -89,7 +89,7 @@ export function DashboardFilters({ transactions, getbacks, categories }: {
     <div>
       {/* Filter Bar */}
       <div className="flex flex-wrap items-center gap-2 mb-4">
-        <div className="flex gap-1 bg-bg dark:bg-gray-800 rounded-xl p-1">
+        <div className="flex gap-1 bg-bg dark:bg-dark-surface rounded-xl p-1">
           {scopes.map((s) => (
             <button key={s.v} onClick={() => setScope(s.v)}
               className={cn('px-3 py-1.5 text-xs font-medium rounded-lg transition',
@@ -98,7 +98,7 @@ export function DashboardFilters({ transactions, getbacks, categories }: {
             </button>
           ))}
         </div>
-        <div className="flex gap-1 bg-bg dark:bg-gray-800 rounded-xl p-1 ml-auto">
+        <div className="flex gap-1 bg-bg dark:bg-dark-surface rounded-xl p-1 ml-auto">
           {(['month', 'quarter', 'year'] as Period[]).map((p) => (
             <button key={p} onClick={() => { setPeriod(p); setOffset(0); }}
               className={cn('px-3 py-1.5 text-xs font-medium rounded-lg transition',
@@ -111,9 +111,9 @@ export function DashboardFilters({ transactions, getbacks, categories }: {
 
       {/* Period nav */}
       <div className="flex items-center justify-center gap-4 mb-5">
-        <button onClick={() => setOffset((o) => o - 1)} className="text-muted hover:text-primary-900 dark:hover:text-white p-1">&lt;</button>
-        <span className="text-sm font-semibold dark:text-white min-w-[140px] text-center">{label}</span>
-        <button onClick={() => setOffset((o) => o + 1)} className="text-muted hover:text-primary-900 dark:hover:text-white p-1" disabled={offset >= 0}>&gt;</button>
+        <button onClick={() => setOffset((o) => o - 1)} className="text-muted hover:text-primary-900 dark:hover:text-dark-text p-1">&lt;</button>
+        <span className="text-sm font-semibold dark:text-dark-text min-w-[140px] text-center">{label}</span>
+        <button onClick={() => setOffset((o) => o + 1)} className="text-muted hover:text-primary-900 dark:hover:text-dark-text p-1" disabled={offset >= 0}>&gt;</button>
       </div>
 
       {/* KPI Grid */}
@@ -136,10 +136,10 @@ function KPI({ label, value, positive, warn, className }: {
   label: string; value: string; positive?: boolean; warn?: boolean; className?: string;
 }) {
   return (
-    <div className={cn('card dark:bg-gray-800', className)}>
+    <div className={cn('card dark:bg-dark-surface', className)}>
       <p className="text-xs text-muted">{label}</p>
       <p className={cn('text-lg md:text-xl font-bold mt-1 font-display',
-        positive ? 'text-accent-600 dark:text-accent' : warn ? 'text-amber-600' : 'dark:text-white')}>
+        positive ? 'text-accent-600 dark:text-accent' : warn ? 'text-amber-600' : 'dark:text-dark-text')}>
         {value}
       </p>
     </div>

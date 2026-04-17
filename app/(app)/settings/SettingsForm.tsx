@@ -13,9 +13,31 @@ export function SettingsForm({ initial, email }: { initial: any; email: string }
   const [botttSeed, setBotttSeed] = useState(initial?.bottt_seed ?? '');
   const [botttName, setBotttName] = useState(initial?.bottt_name ?? '');
   const [options, setOptions] = useState(() => generateBotttOptions(initial?.anrede ?? 'Divers'));
-  const [darkMode, setDarkMode] = useState(initial?.dark_mode ?? false);
+  const [darkMode, setDarkMode] = useState<boolean>(initial?.dark_mode ?? false);
   const [saving, setSaving] = useState(false);
   const [msg, setMsg] = useState<string | null>(null);
+
+  // Sync <html class="dark"> with current state on mount
+  useEffect(() => {
+    if (typeof document === 'undefined') return;
+    const root = document.documentElement;
+    if (darkMode) root.classList.add('dark');
+    else root.classList.remove('dark');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Immediate toggle: update DOM + persist to DB
+  async function toggleDarkMode(): Promise<void> {
+    const next = !darkMode;
+    setDarkMode(next);
+    if (typeof document !== 'undefined') {
+      const root = document.documentElement;
+      if (next) root.classList.add('dark');
+      else root.classList.remove('dark');
+    }
+    const supabase = createClient();
+    await supabase.from('profiles').update({ dark_mode: next }).eq('id', initial.id);
+  }
 
   // PIN change
   const [showPinChange, setShowPinChange] = useState(false);
@@ -84,7 +106,7 @@ export function SettingsForm({ initial, email }: { initial: any; email: string }
     <div className="space-y-6">
       {/* Profile */}
       <div className="card">
-        <h3 className="font-semibold mb-4 dark:text-white">Profil</h3>
+        <h3 className="font-semibold mb-4 dark:text-dark-text">Profil</h3>
         <label className="label">Email</label>
         <input className="input mb-3" value={email} disabled />
         <div className="grid grid-cols-2 gap-3 mb-3">
@@ -101,7 +123,7 @@ export function SettingsForm({ initial, email }: { initial: any; email: string }
 
       {/* Bottt */}
       <div className="card">
-        <h3 className="font-semibold mb-4 dark:text-white">Dein Bottt</h3>
+        <h3 className="font-semibold mb-4 dark:text-dark-text">Dein Bottt</h3>
         <div className="flex items-center gap-4 mb-4">
           <BotttAvatar seed={botttSeed} anrede={initial?.anrede} size={72} />
           <input className="input" placeholder="Name" value={botttName} onChange={(e) => setBotttName(e.target.value)} />
@@ -121,7 +143,7 @@ export function SettingsForm({ initial, email }: { initial: any; email: string }
 
       {/* PIN */}
       <div className="card">
-        <h3 className="font-semibold mb-4 dark:text-white">PIN</h3>
+        <h3 className="font-semibold mb-4 dark:text-dark-text">PIN</h3>
         {!showPinChange ? (
           <button onClick={() => setShowPinChange(true)} className="btn-outline w-full">PIN aendern</button>
         ) : (
@@ -147,14 +169,16 @@ export function SettingsForm({ initial, email }: { initial: any; email: string }
       <div className="card">
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="font-semibold dark:text-white">Dark Mode</h3>
+            <h3 className="font-semibold dark:text-dark-text">Dark Mode</h3>
             <p className="text-xs text-muted mt-0.5">Dunkles Farbschema</p>
           </div>
           <button
-            onClick={() => setDarkMode(!darkMode)}
+            onClick={toggleDarkMode}
+            aria-label="Dark Mode umschalten"
+            aria-pressed={darkMode}
             className={cn(
               'relative w-12 h-7 rounded-full transition',
-              darkMode ? 'bg-accent' : 'bg-border'
+              darkMode ? 'bg-accent' : 'bg-border dark:bg-dark-border'
             )}
           >
             <span className={cn(
@@ -167,15 +191,15 @@ export function SettingsForm({ initial, email }: { initial: any; email: string }
 
       {/* Recurring */}
       <div className="card">
-        <h3 className="font-semibold mb-4 dark:text-white">Wiederkehrende Eintraege</h3>
+        <h3 className="font-semibold mb-4 dark:text-dark-text">Wiederkehrende Eintraege</h3>
         {recurring.length === 0 ? (
           <p className="text-sm text-muted">Keine wiederkehrenden Eintraege. Nutze den Suffix "rec" beim Hinzufuegen.</p>
         ) : (
           <ul className="space-y-2">
             {recurring.map((r) => (
-              <li key={r.id} className="flex items-center justify-between p-3 rounded-xl bg-bg dark:bg-gray-700">
+              <li key={r.id} className="flex items-center justify-between p-3 rounded-xl bg-bg dark:bg-dark-border/30">
                 <div>
-                  <p className="text-sm font-medium dark:text-white">{r.description}</p>
+                  <p className="text-sm font-medium dark:text-dark-text">{r.description}</p>
                   <p className="text-xs text-muted">{fmtEUR(Number(r.amount))} am {r.day_of_month}. des Monats</p>
                 </div>
                 <button onClick={() => deleteRecurring(r.id)} className="text-red-500 hover:text-red-700 text-sm p-1">x</button>

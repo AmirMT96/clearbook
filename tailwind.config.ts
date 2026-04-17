@@ -28,6 +28,12 @@ const config: Config = {
         surface: '#ffffff',
         muted: '#6b7280',
         border: '#e5e7eb',
+        // Dark mode palette per spec
+        'dark-bg': '#0F172A',
+        'dark-surface': '#1E293B',
+        'dark-border': '#334155',
+        'dark-text': '#F1F5F9',
+        'dark-muted': '#94A3B8',
       },
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
