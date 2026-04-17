@@ -12,7 +12,7 @@ export default async function SettingsPage() {
 
   return (
     <div className="p-5 md:p-8 max-w-2xl mx-auto">
-      <h1 className="text-2xl mb-4">⚙️ Einstellungen</h1>
+      <h1 className="text-2xl mb-4 dark:text-white">Einstellungen</h1>
       <SettingsForm initial={profile} email={user.email ?? ''} />
     </div>
   );

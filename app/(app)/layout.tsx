@@ -1,6 +1,7 @@
 import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import { AppShell } from '@/components/AppShell';
+import { PinGuard } from '@/components/PinGuard';
 
 export default async function AppLayout({ children }: { children: React.ReactNode }) {
   const supabase = await createClient();
@@ -19,7 +20,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
       botttName={profile?.bottt_name ?? undefined}
       anrede={profile?.anrede ?? undefined}
     >
-      {children}
+      <PinGuard>{children}</PinGuard>
     </AppShell>
   );
 }
